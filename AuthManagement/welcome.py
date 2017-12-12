@@ -42,42 +42,9 @@ class Ui_Welcome(object):
         self.connTypeComboBox.addItem("")
         self.connTypeComboBox.addItem("")
         self.connTypeComboBox.addItem("")
-
-        ########################Basic###############################
+        self.setBasicChoiceFiled()
         self.connTypeComboBox.activated.connect(self.onActivated)
-        self.HostnameLineEdit = QtWidgets.QLineEdit(self.groupBox_2)
-        self.HostnameLineEdit.setGeometry(QtCore.QRect(150, 50, 261, 22))
-        self.HostnameLineEdit.setFrame(True)
-        self.HostnameLineEdit.setObjectName("HostnameLineEdit")
-        self.HostnameLineEdit.hide()
-        self.PortLineEdit = QtWidgets.QLineEdit(self.groupBox_2)
-        self.PortLineEdit.setGeometry(QtCore.QRect(150, 80, 261, 22))
-        self.PortLineEdit.setObjectName("PortLineEdit")
-        self.PortLineEdit.hide()
-        self.SIDLineEdit = QtWidgets.QLineEdit(self.groupBox_2)
-        self.SIDLineEdit.setGeometry(QtCore.QRect(150, 110, 261, 22))
-        self.SIDLineEdit.setObjectName("SIDLineEdit")
-        self.SIDLineEdit.hide()
-        self.hostnameLabel = QtWidgets.QLabel(self.groupBox_2)
-        self.hostnameLabel.setGeometry(QtCore.QRect(70, 50, 71, 16))
-        self.hostnameLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.hostnameLabel.setObjectName("hostnameLabel")
-        self.hostnameLabel.hide()
-        self.portLabel = QtWidgets.QLabel(self.groupBox_2)
-        self.portLabel.setGeometry(QtCore.QRect(70, 80, 71, 16))
-        self.portLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.portLabel.setObjectName("PortLabel")
-        self.portLabel.hide()
-        self.sIDLabel = QtWidgets.QLabel(self.groupBox_2)
-        self.sIDLabel.setGeometry(QtCore.QRect(70, 110, 71, 16))
-        self.sIDLabel.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.sIDLabel.setObjectName("sIDLabel")
-        self.sIDLabel.hide()
-
-        ########################TNS###############################
-
         self.gridLayout.addWidget(self.groupBox_2, 1, 0, 1, 1)
-
         self.retranslateUi(Welcome)
         QtCore.QMetaObject.connectSlotsByName(Welcome)
 
@@ -95,22 +62,18 @@ class Ui_Welcome(object):
     def onActivated(self, index):
         try:
             if index == 0:
-                self.HostnameLineEdit.show()
-                self.PortLineEdit.show()
-                self.SIDLineEdit.show()
-                self.hostnameLabel.show()
-                self.portLabel.show()
-                self.sIDLabel.show()
+                self.setBasicChoiceFiled()
             elif index == 1:
-                self.setTNSTypeField()
+                self.setTNSChoiceField()
             elif index == 2:
-                self.setAdvancedTypeFiled()
+                self.setAdvancedChoiceFiled()
         except:
             traceback.print_exc()
 
-    def setTNSTypeField(self):
+    def setTNSChoiceField(self):
+        self.clearGroupBoxChild(self.groupBox_2)
         self.TNSLabel = QtWidgets.QLabel(self.groupBox_2)
-        self.TNSLabel.setGeometry(QtCore.QRect(50, 50, 90, 16))
+        self.TNSLabel.setGeometry(QtCore.QRect(50, 52, 90, 16))
         self.TNSLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.TNSLabel.setObjectName("TNSLabel")
         self.TNSLabel.setText("Network Alias")
@@ -121,15 +84,61 @@ class Ui_Welcome(object):
         self.TNSLineEdit.setObjectName("TNSLineEdit")
         self.TNSLineEdit.show()
 
-    def setAdvancedTypeFiled(self):
-        if self.groupBox_2:
-            list = self.groupBox_2.children()
-            print(list[0])
+    def setAdvancedChoiceFiled(self):
+        self.clearGroupBoxChild(self.groupBox_2)
+        self.DBC_Label = QtWidgets.QLabel(self.groupBox_2)
+        self.DBC_Label.setGeometry(QtCore.QRect(50, 50, 100, 16))
+        self.DBC_Label.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
+        self.DBC_Label.setObjectName("TNSLabel")
+        self.DBC_Label.setText("Custom DBC URL")
+        self.DBC_Label.show()
+        self.DBC_URLTextEdit = QtWidgets.QTextEdit(self.groupBox_2)
+        self.DBC_URLTextEdit.setGeometry(QtCore.QRect(50, 70, 400, 60))
+        self.DBC_URLTextEdit.setObjectName("JDBC_URLTextEdit")
+        self.DBC_URLTextEdit.show()
 
-        self.JDBC_URLTextEdit = QtWidgets.QTextEdit(self.groupBox_2)
-        self.JDBC_URLTextEdit.setGeometry(QtCore.QRect(50, 50, 400, 60))
-        self.JDBC_URLTextEdit.setObjectName("JDBC_URLTextEdit")
-        self.JDBC_URLTextEdit.show()
+    def setBasicChoiceFiled(self):
+        self.clearGroupBoxChild(self.groupBox_2)
+
+        self.HostnameLineEdit = QtWidgets.QLineEdit(self.groupBox_2)
+        self.HostnameLineEdit.setGeometry(QtCore.QRect(150, 50, 261, 22))
+        self.HostnameLineEdit.setFrame(True)
+        self.HostnameLineEdit.setObjectName("HostnameLineEdit")
+        self.HostnameLineEdit.show()
+        self.PortLineEdit = QtWidgets.QLineEdit(self.groupBox_2)
+        self.PortLineEdit.setGeometry(QtCore.QRect(150, 80, 261, 22))
+        self.PortLineEdit.setObjectName("PortLineEdit")
+        self.PortLineEdit.show()
+        self.SIDLineEdit = QtWidgets.QLineEdit(self.groupBox_2)
+        self.SIDLineEdit.setGeometry(QtCore.QRect(150, 110, 261, 22))
+        self.SIDLineEdit.setObjectName("SIDLineEdit")
+        self.SIDLineEdit.show()
+        self.hostnameLabel = QtWidgets.QLabel(self.groupBox_2)
+        self.hostnameLabel.setGeometry(QtCore.QRect(70, 52, 71, 16))
+        self.hostnameLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
+        self.hostnameLabel.setObjectName("hostnameLabel")
+        self.hostnameLabel.setText("Hostname: ")
+        self.hostnameLabel.show()
+        self.portLabel = QtWidgets.QLabel(self.groupBox_2)
+        self.portLabel.setGeometry(QtCore.QRect(70, 82, 71, 16))
+        self.portLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
+        self.portLabel.setObjectName("PortLabel")
+        self.portLabel.setText("Port: ")
+        self.portLabel.show()
+        self.sIDLabel = QtWidgets.QLabel(self.groupBox_2)
+        self.sIDLabel.setGeometry(QtCore.QRect(70, 112, 71, 16))
+        self.sIDLabel.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
+        self.sIDLabel.setObjectName("sIDLabel")
+        self.sIDLabel.setText("SID: ")
+        self.sIDLabel.show()
+
+    def clearGroupBoxChild(self, object):
+        if object:
+            list = object.children()
+            for i in reversed(range(len(list))):
+                if type(list[i]) is not QtWidgets.QComboBox:
+                    list[i].deleteLater()
+
 
 if __name__ == "__main__":
     import sys
