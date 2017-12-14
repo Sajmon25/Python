@@ -8,11 +8,15 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import traceback
+import re, os
+from OracleDatabase import OracleDatabase
 
 class Ui_Welcome(object):
+
+
     def setupUi(self, Welcome):
         Welcome.setObjectName("Welcome")
-        Welcome.resize(521, 314)
+        Welcome.resize(521, 414)
         self.gridLayout = QtWidgets.QGridLayout(Welcome)
         self.gridLayout.setObjectName("gridLayout")
         self.groupBox = QtWidgets.QGroupBox(Welcome)
@@ -30,34 +34,43 @@ class Ui_Welcome(object):
         self.passwordLineEdit.setInputMask("")
         self.passwordLineEdit.setText("")
         self.passwordLineEdit.setObjectName("passwordLineEdit")
+        self.passwordLineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.LoginButton = QtWidgets.QPushButton(Welcome)
+        self.LoginButton.setGeometry(QtCore.QRect(220, 360, 93, 28))
+        self.LoginButton.setObjectName("login")
+        self.LoginButton.clicked.connect(self.loginUser)
         self.userNameLineEdit.raise_()
         self.passwordLineEdit.raise_()
-        self.gridLayout.addWidget(self.groupBox, 0, 0, 1, 1)
+        self.LoginButton.raise_()
         self.groupBox_2 = QtWidgets.QGroupBox(Welcome)
         self.groupBox_2.setObjectName("groupBox_2")
         self.connTypeComboBox = QtWidgets.QComboBox(self.groupBox_2)
         self.connTypeComboBox.setGeometry(QtCore.QRect(170, 20, 171, 22))
-        self.connTypeComboBox.setEditable(True)
         self.connTypeComboBox.setObjectName("connTypeComboBox")
         self.connTypeComboBox.addItem("")
         self.connTypeComboBox.addItem("")
         self.connTypeComboBox.addItem("")
         self.setBasicChoiceFiled()
         self.connTypeComboBox.activated.connect(self.onActivated)
-        self.gridLayout.addWidget(self.groupBox_2, 1, 0, 1, 1)
+
+        self.gridLayout.addWidget(self.groupBox, 0, 0, 1, 3)
+        self.gridLayout.addWidget(self.groupBox_2, 1, 0, 1, 3)
+        self.gridLayout.addWidget(self.LoginButton, 2, 1, 1, 1)
+
         self.retranslateUi(Welcome)
         QtCore.QMetaObject.connectSlotsByName(Welcome)
 
     def retranslateUi(self, Welcome):
         _translate = QtCore.QCoreApplication.translate
-        Welcome.setWindowTitle(_translate("Welcome", "Dialog"))
-        self.groupBox.setTitle(_translate("Welcome", "Login"))
+        Welcome.setWindowTitle(_translate("Welcome", "Authorization"))
+        self.groupBox.setTitle(_translate("Welcome", "User"))
         self.userNameLineEdit.setPlaceholderText(_translate("Welcome", "User Name"))
         self.passwordLineEdit.setPlaceholderText(_translate("Welcome", "Password"))
         self.groupBox_2.setTitle(_translate("Welcome", "Connection type"))
         self.connTypeComboBox.setItemText(0, _translate("Welcome", "Basic"))
         self.connTypeComboBox.setItemText(1, _translate("Welcome", "TNS"))
         self.connTypeComboBox.setItemText(2, _translate("Welcome", "Advanced"))
+        self.LoginButton.setText(_translate("Welcome", "Login"))
 
     def onActivated(self, index):
         try:
@@ -65,6 +78,7 @@ class Ui_Welcome(object):
                 self.setBasicChoiceFiled()
             elif index == 1:
                 self.setTNSChoiceField()
+
             elif index == 2:
                 self.setAdvancedChoiceFiled()
         except:
@@ -78,11 +92,21 @@ class Ui_Welcome(object):
         self.TNSLabel.setObjectName("TNSLabel")
         self.TNSLabel.setText("Network Alias")
         self.TNSLabel.show()
-        self.TNSLineEdit = QtWidgets.QLineEdit(self.groupBox_2)
-        self.TNSLineEdit.setGeometry(QtCore.QRect(150, 50, 261, 22))
-        self.TNSLineEdit.setFrame(True)
-        self.TNSLineEdit.setObjectName("TNSLineEdit")
-        self.TNSLineEdit.show()
+
+        self.TNSComboBox = QtWidgets.QComboBox(self.groupBox_2)
+        self.TNSComboBox.setGeometry(QtCore.QRect(170, 50, 171, 22))
+        self.TNSComboBox.setObjectName("TNSComboBox")
+
+        script_dir = os.path.dirname(__file__)
+        rel_path = "C:\oracle\ora10\network\ADMIN\tnsnames.ora"
+        abs_file_path = os.path.join(script_dir, rel_path)
+        file = open(r"C:/oracle/ora10/network/ADMIN/tnsnames.ora", "r")
+        for line in file:
+            matchLine = re.match('^[a-zA-Z0-9]*', line, flags=0)
+            if matchLine.group(0):
+                self.TNSComboBox.addItem(matchLine.group(0))
+
+        self.TNSComboBox.show()
 
     def setAdvancedChoiceFiled(self):
         self.clearGroupBoxChild(self.groupBox_2)
@@ -93,7 +117,7 @@ class Ui_Welcome(object):
         self.DBC_Label.setText("Custom DBC URL")
         self.DBC_Label.show()
         self.DBC_URLTextEdit = QtWidgets.QTextEdit(self.groupBox_2)
-        self.DBC_URLTextEdit.setGeometry(QtCore.QRect(50, 70, 400, 60))
+        self.DBC_URLTextEdit.setGeometry(QtCore.QRect(50, 75, 400, 60))
         self.DBC_URLTextEdit.setObjectName("JDBC_URLTextEdit")
         self.DBC_URLTextEdit.show()
 
@@ -136,8 +160,22 @@ class Ui_Welcome(object):
         if object:
             list = object.children()
             for i in reversed(range(len(list))):
-                if type(list[i]) is not QtWidgets.QComboBox:
+                if list[i].objectName() != "connTypeComboBox":
                     list[i].deleteLater()
+
+    def loginUser(self):
+
+        login       = self.userNameLineEdit
+        password    = self.passwordLineEdit
+
+        if self.connTypeComboBox.currentIndex() == 0:
+            print("Connect to database")
+            try:
+                OD = OracleDatabase()
+                OD.get_connection()
+            except:
+                traceback.print_exc()
+                print("Connection Error!")
 
 
 if __name__ == "__main__":
