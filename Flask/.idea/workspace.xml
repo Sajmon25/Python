@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b44475f-dfad-4ad4-8c5c-1205fa8a27e4" name="Default Changelist" comment="" />
+    <list default="true" id="4b44475f-dfad-4ad4-8c5c-1205fa8a27e4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,27 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-911167019">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="dummy" value="25" />
+          <entry key="py" value="410" />
+          <entry key="txt" value="25" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="50" />
+          <entry key="Python" value="410" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Flask" />
@@ -52,21 +75,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+            <state relative-caret-position="119">
+              <caret line="103" column="29" selection-start-line="103" selection-start-column="29" selection-end-line="103" selection-end-column="29" />
               <folding>
-                <marker date="1538495583218" expanded="true" signature="387:392" ph="..." />
-                <marker date="1538495583218" expanded="true" signature="459:593" ph="..." />
-                <marker date="1538495583218" expanded="true" signature="647:1340" ph="..." />
-                <marker date="1538495583218" expanded="true" signature="1337:1340" ph="..." />
-                <marker date="1538495583218" expanded="true" signature="1417:1741" ph="..." />
-                <marker date="1538495583218" expanded="true" signature="1729:1741" ph="..." />
+                <marker date="1538500215546" expanded="true" signature="2627:3072" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="99421703-954c-4861-b1c3-32f76448c11b" />
@@ -84,6 +105,7 @@
     <option name="width" value="1004" />
     <option name="height" value="688" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -104,31 +126,6 @@
             <path>
               <item name="Flask" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="Flask" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="Flask" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Flask" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="Flask-1.0.2.dist-info" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Flask" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.7 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="werkzeug" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -192,6 +189,14 @@
       <option name="presentableId" value="Default" />
       <updated>1538218272748</updated>
     </task>
+    <task id="LOCAL-00001" summary="Add patch functionality">
+      <created>1538500079249</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1538500079249</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -205,13 +210,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49756098" visible="true" weight="0.24051896" />
       <window_info id="Structure" order="1" sideWeight="0.502439" side_tool="true" weight="0.24051896" />
       <window_info id="Favorites" order="2" sideWeight="0.502439" side_tool="true" weight="0.24051896" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49600798" weight="0.32786885" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49600798" visible="true" weight="0.32786885" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -228,18 +234,17 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add patch functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add patch functionality" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+        <state relative-caret-position="119">
+          <caret line="103" column="29" selection-start-line="103" selection-start-column="29" selection-end-line="103" selection-end-column="29" />
           <folding>
-            <marker date="1538495583218" expanded="true" signature="387:392" ph="..." />
-            <marker date="1538495583218" expanded="true" signature="459:593" ph="..." />
-            <marker date="1538495583218" expanded="true" signature="647:1340" ph="..." />
-            <marker date="1538495583218" expanded="true" signature="1337:1340" ph="..." />
-            <marker date="1538495583218" expanded="true" signature="1417:1741" ph="..." />
-            <marker date="1538495583218" expanded="true" signature="1729:1741" ph="..." />
+            <marker date="1538500215546" expanded="true" signature="2627:3072" ph="..." />
           </folding>
         </state>
       </provider>
