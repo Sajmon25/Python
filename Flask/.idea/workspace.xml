@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b44475f-dfad-4ad4-8c5c-1205fa8a27e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/settings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings" beforeDir="false" afterPath="$PROJECT_DIR$/settings" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,13 +58,14 @@
         <counts>
           <entry key="dummy" value="25" />
           <entry key="py" value="681" />
-          <entry key="txt" value="55" />
+          <entry key="settings" value="152" />
+          <entry key="txt" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="80" />
-          <entry key="Python" value="681" />
+          <entry key="PLAIN_TEXT" value="105" />
+          <entry key="Python" value="833" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -100,7 +100,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/settings">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -115,6 +119,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/settings" />
       </list>
     </option>
   </component>
@@ -231,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538511292418</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add empty settings file">
+      <created>1538511536072</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1538511536072</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -273,7 +285,8 @@
     <MESSAGE value="Add patch functionality" />
     <MESSAGE value="Add delete functionality" />
     <MESSAGE value="Add delete functionality 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add delete functionality 2" />
+    <MESSAGE value="Add empty settings file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add empty settings file" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.py">
@@ -288,7 +301,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
