@@ -25,6 +25,17 @@ class Book(db.Model):
 
     def delete_book(self, _isbn):
         Book.query.filter_by(isbn=_isbn).delete()
+        db.session.commit()
+
+    def update_book_price(self, _isbn, _price):
+        book_to_update = Book.query.filter_by(isbn=_isbn).first()
+        book_to_update.price = _price
+        db.session.commit()
+
+    def update_book_name(self, _isbn, _name):
+        book_to_update = Book.query.filter_by(isbn=_isbn).first()
+        book_to_update.name = _name
+        db.session.commit()
 
     def __repr__(self):
         book_object = {

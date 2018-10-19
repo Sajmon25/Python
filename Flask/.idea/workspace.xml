@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4b44475f-dfad-4ad4-8c5c-1205fa8a27e4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BookModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/database.db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,15 +59,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="28" />
-          <entry key="py" value="1319" />
+          <entry key="py" value="1542" />
           <entry key="settings" value="152" />
-          <entry key="txt" value="134" />
+          <entry key="txt" value="222" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="162" />
-          <entry key="Python" value="1471" />
+          <entry key="PLAIN_TEXT" value="250" />
+          <entry key="Python" value="1694" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -104,11 +104,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BookModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+            <state relative-caret-position="310">
+              <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1539970018090" expanded="true" signature="619:681" ph="..." />
+                <marker date="1539970598913" expanded="true" signature="837:1152" ph="..." />
               </folding>
             </state>
           </provider>
@@ -344,7 +344,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539969360566</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Create database">
+      <created>1539970108683</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1539970108683</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Create methods adding and return data from Database">
+      <created>1539970273324</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1539970273324</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add delete method">
+      <created>1539970402320</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1539970402320</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -390,7 +411,9 @@
     <MESSAGE value="Add database config file" />
     <MESSAGE value="Install SQLAlchemy" />
     <MESSAGE value="Create database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create database" />
+    <MESSAGE value="Create methods adding and return data from Database" />
+    <MESSAGE value="Add delete method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add delete method" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test.py">
@@ -420,11 +443,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BookModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+        <state relative-caret-position="310">
+          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <marker date="1539970018090" expanded="true" signature="619:681" ph="..." />
+            <marker date="1539970598913" expanded="true" signature="837:1152" ph="..." />
           </folding>
         </state>
       </provider>
