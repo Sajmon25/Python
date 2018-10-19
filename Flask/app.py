@@ -1,5 +1,9 @@
 from flask import Flask, jsonify, request, Response, json
 
+from BookModel import *
+from settings import *
+import json
+
 # app = Flask(__name__)
 from settings import *
 books = [
@@ -22,7 +26,7 @@ print(__name__)
 # GET /books
 @app.route('/books')
 def get_books():
-    return jsonify({'books': books})
+    return jsonify({'books': Book.get_all_books()})
 
 
 def validBookObject(bookObject):
@@ -36,14 +40,9 @@ def validBookObject(bookObject):
 def add_book():
     request_data = request.get_json()
     if validBookObject(request_data):
-        new_book = {
-            "name": request_data['name'],
-            "price": request_data['price'],
-            "isbn": request_data['isbn']
-        }
-        books.insert(0, new_book)
+        Book.add_book(request_data['name'], request_data['price'], request_data['isbn '])
         response = Response("", 201, mimetype="application/json")
-        response.headers['Location'] = "/books/" + str(new_book['isbn'])
+        response.headers['Location'] = "/books/" + str(request_data['isbn'])
         return response
     else:
         invalidBookObjectErrorMsg = {
@@ -57,13 +56,7 @@ def add_book():
 # GET /books/isbn
 @app.route('/books/<int:isbn>')
 def get_book_by_isbn(isbn):
-    return_value = {}
-    for book in books:
-        if book["isbn"] == isbn:
-            return_value = {
-                'name': book["name"],
-                'price': book["price"]
-            }
+    return_value = Book.get_book(isbn)
     return jsonify(return_value)
 
 
@@ -86,17 +79,7 @@ def replace_book(isbn):
         response = Response(json.dumps(invalidBookObjectErrorMsg), status=400, mimetype="application/json")
         return response
 
-    new_book = {
-        'name': request_data['name'],
-        'price': request_data['price'],
-        'isbn': isbn
-    }
-    i = 0
-    for book in books:
-        currentIsbn = book["isbn"]
-        if currentIsbn == isbn:
-            books[i] = new_book
-        i += 1
+    Book.replace_book_name(isbn, request_data['name'], request_data['price'])
     response = Response("", status=204)
     return response
 
@@ -104,14 +87,12 @@ def replace_book(isbn):
 @app.route('/books/<int:isbn>', methods=['PATCH'])
 def upadate_books(isbn):
     request_data = request.get_json()
-    upadated_book = {}
+
     if "name" in request_data:
-        upadated_book["name"] = request_data['name']
+        Book.update_book_name(isbn, request_data['name'])
     if "price" in request_data:
-        upadated_book["price"] = request_data['price']
-    for book in books:
-        if book["isbn"] == isbn:
-            book.update(upadated_book)
+        Book.update_book_price(isbn, request_data['price'])
+
     response = Response("", status=204)
     response.headers['Location'] = "books/" + str(isbn)
     return response
@@ -119,13 +100,10 @@ def upadate_books(isbn):
 
 @app.route('/books/<int:isbn>', methods=['DELETE'])
 def delete_book(isbn):
-    i = 0
-    for book in books:
-        if book["isbn"] == isbn:
-            books.pop(i)
-            response = Response("", status=204)
-            return response
-        i += 1
+    if Book.delete_book(isbn):
+        response = Response("", status=204)
+        return response
+
     invalidBookObjectErrorMsg = {
         "error": "error",
         "helpString": "helpString"
