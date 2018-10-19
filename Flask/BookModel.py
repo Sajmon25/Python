@@ -23,6 +23,9 @@ class Book(db.Model):
     def get_book(self, _isbn):
         return Book.query.filter_by(isbn=_isbn).first()
 
+    def delete_book(self, _isbn):
+        Book.query.filter_by(isbn=_isbn).delete()
+
     def __repr__(self):
         book_object = {
             'name': self.name,
