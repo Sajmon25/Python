@@ -11,3 +11,9 @@ class Book(db.Model):
     name = db.Column(db.String(80), nullable=False)
     price = db.Column(db.Float, nullable=False)
     isbn = db.Column(db.Integer)
+
+    def add_book(_name, _price, _isbn):
+        new_book = Book(name=_name, price=_price, isbn=_isbn)
+        db.session.add(new_book)
+        db.session.commit()
+
