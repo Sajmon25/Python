@@ -12,13 +12,16 @@ class Book(db.Model):
     price = db.Column(db.Float, nullable=False)
     isbn = db.Column(db.Integer)
 
-    def add_book(_name, _price, _isbn):
+    def add_book(self, _name, _price, _isbn):
         new_book = Book(name=_name, price=_price, isbn=_isbn)
         db.session.add(new_book)
         db.session.commit()
 
     def get_all_books(self):
         return Book.query.all()
+
+    def get_book(self, _isbn):
+        return Book.query.filter_by(isbn=_isbn).first()
 
     def __repr__(self):
         book_object = {
